@@ -45,12 +45,3 @@ export class CreateEmployeeDto {
       @IsIn(Object.values(EmployeeGroupEnum))
       group: string;
 }
-
-
-@ApiProperty({
-    name: 'patientAuthId',
-    example: 123,
-  })
-  @IsInt()
-  @Type(() => Number)
-  patientAuthId: number;
