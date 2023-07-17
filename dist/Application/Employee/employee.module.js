@@ -9,6 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeeModule = void 0;
 const common_1 = require("@nestjs/common");
 const employee_controller_1 = require("../../Api/employee/employee.controller");
+const AddEmployeeCommand_service_1 = require("./AddEmployeeCommand/AddEmployeeCommand.service");
+const IEmployeeRepo_1 = require("../Interfaces/employee/IEmployeeRepo");
+const EmployeeRepo_service_1 = require("../../presistance/mongo/mongoRepos/employee/EmployeeRepo.service");
 let EmployeeModule = exports.EmployeeModule = class EmployeeModule {
     configure(consumer) {
         consumer.apply()
@@ -18,7 +21,13 @@ let EmployeeModule = exports.EmployeeModule = class EmployeeModule {
 };
 exports.EmployeeModule = EmployeeModule = __decorate([
     (0, common_1.Module)({
-        imports: []
+        imports: [],
+        providers: [
+            AddEmployeeCommand_service_1.default,
+            { provide: IEmployeeRepo_1.default, useClass: EmployeeRepo_service_1.default },
+        ],
+        exports: [AddEmployeeCommand_service_1.default,
+        ],
     })
 ], EmployeeModule);
 //# sourceMappingURL=employee.module.js.map
