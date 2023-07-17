@@ -14,27 +14,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeeController = void 0;
 const common_1 = require("@nestjs/common");
-const employee_service_1 = require("./employee.service");
 const create_employee_dto_1 = require("./dto/create-employee.dto");
-const update_employee_dto_1 = require("./dto/update-employee.dto");
+const AddEmployeeCommand_service_1 = require("../../Application/Employee/AddEmployeeCommand/AddEmployeeCommand.service");
 let EmployeeController = exports.EmployeeController = class EmployeeController {
-    constructor(employeeService) {
-        this.employeeService = employeeService;
+    constructor(AddEmployeeCommand) {
+        this.AddEmployeeCommand = AddEmployeeCommand;
     }
     create(createEmployeeDto) {
-        return this.employeeService.create(createEmployeeDto);
-    }
-    findAll() {
-        return this.employeeService.findAll();
-    }
-    findOne(id) {
-        return this.employeeService.findOne(+id);
-    }
-    update(id, updateEmployeeDto) {
-        return this.employeeService.update(+id, updateEmployeeDto);
-    }
-    remove(id) {
-        return this.employeeService.remove(+id);
+        return this.AddEmployeeCommand.execute(createEmployeeDto);
     }
 };
 __decorate([
@@ -44,36 +31,8 @@ __decorate([
     __metadata("design:paramtypes", [create_employee_dto_1.CreateEmployeeDto]),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "create", null);
-__decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], EmployeeController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], EmployeeController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_employee_dto_1.UpdateEmployeeDto]),
-    __metadata("design:returntype", void 0)
-], EmployeeController.prototype, "update", null);
-__decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], EmployeeController.prototype, "remove", null);
 exports.EmployeeController = EmployeeController = __decorate([
     (0, common_1.Controller)('employee'),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+    __metadata("design:paramtypes", [AddEmployeeCommand_service_1.default])
 ], EmployeeController);
 //# sourceMappingURL=employee.controller.js.map
