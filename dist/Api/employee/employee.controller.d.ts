@@ -4,4 +4,5 @@ export declare class EmployeeController {
     private readonly AddEmployeeCommand;
     constructor(AddEmployeeCommand: AddEmployeeCommand);
     create(createEmployeeDto: CreateEmployeeDto): Promise<import("../../Domain/Employee/Employee").default>;
+    findAll(): string;
 }

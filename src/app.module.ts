@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmployeeModule } from './Application/Employee/employee.module';
 import { EmployeeController } from './Api/employee/employee.controller';
-
+import { config } from 'dotenv';
 
 @Module({
   imports: [EmployeeModule],

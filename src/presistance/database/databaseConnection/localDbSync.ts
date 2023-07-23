@@ -1,3 +1,4 @@
+import { config } from 'dotenv';
 import Db from './localDb';
 
 export async function DBConnection() {
