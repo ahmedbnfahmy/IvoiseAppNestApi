@@ -13,10 +13,10 @@ export class EmployeeController {
     return this.AddEmployeeCommand.execute(createEmployeeDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.AddEmployeeCommand.execute
-  // }
+  @Get()
+  findAll() {
+    return 'this.AddEmployeeCommand.execute'
+  }
 
   // @Get(':id')
   // findOne(@Param('id') id: string) {

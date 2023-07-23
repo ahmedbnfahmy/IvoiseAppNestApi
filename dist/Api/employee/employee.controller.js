@@ -23,6 +23,9 @@ let EmployeeController = exports.EmployeeController = class EmployeeController {
     create(createEmployeeDto) {
         return this.AddEmployeeCommand.execute(createEmployeeDto);
     }
+    findAll() {
+        return 'this.AddEmployeeCommand.execute';
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -31,6 +34,12 @@ __decorate([
     __metadata("design:paramtypes", [create_employee_dto_1.CreateEmployeeDto]),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], EmployeeController.prototype, "findAll", null);
 exports.EmployeeController = EmployeeController = __decorate([
     (0, common_1.Controller)('employee'),
     __metadata("design:paramtypes", [AddEmployeeCommand_service_1.default])
